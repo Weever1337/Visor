@@ -172,6 +172,16 @@ public class ServerNetworking {
             );
             vrPlayer.setGunAngleLastSent(gunAngle);
         }
+
+        boolean guiOpened = vrPlayer.isGuiOpened();
+        if (guiOpened != vrPlayer.isGuiOpenedLastSent()) {
+            sendPacketToTrackedVRPlayers(
+                    serverPlayer,
+                    false,
+                    new VROtherGuiStatePayloadToClient(serverPlayer.getUUID(), guiOpened)
+            );
+            vrPlayer.setGuiOpenedLastSent(guiOpened);
+        }
     }
 
 

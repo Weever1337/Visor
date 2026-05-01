@@ -66,6 +66,11 @@ public class VRServerPlayerImpl extends VisorPacketReceiver implements VRServerP
 
     private final Set<UUID> knownTrackers = new HashSet<>();
 
+    @Setter
+    private boolean guiOpened;
+    @Setter
+    private boolean guiOpenedLastSent;
+
     public VRServerPlayerImpl(ServerPlayer player) {
         super(player);
         poseHistoryRelative = new PoseHistoryImpl(poseDataRelative);

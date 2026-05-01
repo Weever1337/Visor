@@ -17,6 +17,8 @@ public interface VisorPayloadToClient extends VisorPayload {
                 case HANDSHAKE -> HandshakePayloadToClient.read(buffer);
                 case OFFHAND_SLOT -> OffhandSlotPayloadToClient.read(buffer);
                 case ROTATION_Y -> RotationYPayloadToClient.read(buffer);
+                case BLOCK_DAMAGE -> BlockDamagePayloadToClient.read(buffer);
+                case OTHER_VR_GUI_STATE -> VROtherGuiStatePayloadToClient.read(buffer);
                 case OTHER_VR_BODY_TYPE -> VROtherBodyTypePayloadToClient.read(buffer);
                 case OTHER_VR_FULL_HEIGHT -> VROtherFullHeightPayloadToClient.read(buffer);
                 case OTHER_GUN_ANGLE -> VROtherGunAnglePayloadToClient.read(buffer);
@@ -24,7 +26,6 @@ public interface VisorPayloadToClient extends VisorPayload {
                 case OTHER_VR_POSE_DATA -> VROtherPoseDataPayloadToClient.read(buffer);
                 case OTHER_VR_WORLD_SCALE -> VROtherWorldScalePayloadToClient.read(buffer);
                 case SERVER_SETTINGS -> SettingsPayloadToClient.read(buffer);
-                case BLOCK_DAMAGE -> BlockDamagePayloadToClient.read(buffer);
                 default -> {
                     VisorAPI.client().getLogger().error(
                             "Visor: Got unexpected payload identifier on client: {}", id

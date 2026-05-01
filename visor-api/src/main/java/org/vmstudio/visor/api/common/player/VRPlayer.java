@@ -97,4 +97,9 @@ public interface VRPlayer {
         return getFullHeight() / 1.52f;
     }
 
+    /**
+     * todo: todo
+     * @return is gui opened
+     */
+    boolean isGuiOpened();
 }
